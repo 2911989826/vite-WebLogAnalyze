@@ -1,0 +1,12 @@
+:root {
+  --w-100: 100%;
+  --h-100: 100%;
+}
+body {
+  height: 100vh;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
