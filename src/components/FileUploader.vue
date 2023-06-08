@@ -1,21 +1,36 @@
 <template>
   <div class="FileUploader">
     <el-upload
-      action="#"
-      :auto-upload="false"
-      :show-file-list="false"
-      @change="handleFileChange"
-    >
-      <el-button size="small" type="primary">点击上传</el-button>
-    </el-upload>
+    class="upload"
+    drag
+    action="#"
+    multiple
+    :auto-upload="false"
+    :show-file-list="false"
+    @change="handleFileChange"
+  >
+    <el-icon class="el-icon--upload"><upload-filled /></el-icon>
+    <div class="el-upload__text">
+      Drop file here or <em>click to upload</em>
+    </div>
+    <template #tip>
+      <div class="el-upload__tip">
+        上传不得超过 2048kb 的.log日志文件
+      </div>
+    </template>
+  </el-upload>
   </div>
 </template>
   
   <script>
+import { UploadFilled } from '@element-plus/icons-vue'
 import { parseLog } from "../utils/logParser.js";
 
 export default {
   name: "FileUploader",
+  components: {
+    UploadFilled
+  },
   methods: {
     handleFileChange(file) {
       console.log(file); // 检查 file 对象是否有效
@@ -60,5 +75,14 @@ export default {
 };
 </script>
   
-  <style>
+<style scoped>
+.upload{
+    width: 100%;
+}
+@media (min-width: 768px) {
+  .upload {
+    width: 30%;
+    margin: auto;
+  }
+}
 </style>

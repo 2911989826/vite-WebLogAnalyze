@@ -1,6 +1,6 @@
 <template>
   <div class="Home">
-    <h1>网站.log日志分析工具</h1>
+    <h1>网站.log日志分析工具 </h1>
     <FileUploader/>
     <LogResults/>
   </div>
@@ -29,6 +29,13 @@ export default {
 };
 </script>
 
-<style>
-
+<style scoped>
+    .Home{
+        width: 100%;
+    }
+    @media screen and (min-width: 668px) {
+        .Home{
+            padding: 0 3rem 2rem;
+        }
+    }
 </style>
